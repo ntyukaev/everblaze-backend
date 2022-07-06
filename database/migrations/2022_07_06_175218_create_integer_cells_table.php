@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('integer_cells', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cell_id')
+                ->constrained('cells')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('value');
             $table->timestamps();
         });

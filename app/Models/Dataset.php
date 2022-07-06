@@ -14,6 +14,14 @@ class Dataset extends Model
     ];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function report()
+    {
+        return $this->belongsTo(Report::class);
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function row()

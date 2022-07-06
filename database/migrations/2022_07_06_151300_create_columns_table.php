@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('columns', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('dataset_id')
+                ->constrained('datasets')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('name');
             $table->timestamps();
         });

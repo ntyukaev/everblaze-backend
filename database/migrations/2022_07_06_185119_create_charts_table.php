@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sheet_id')
+                ->constrained('sheets')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('type', array_keys(config('enums.chart_types')));
             $table->float('x');
             $table->float('y');

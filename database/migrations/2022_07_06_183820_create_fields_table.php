@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('fields', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('chart_id')
+                ->constrained('charts')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('type', array_keys(config('enums.field_types')));
             $table->timestamps();
         });

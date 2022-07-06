@@ -28,4 +28,12 @@ class Report extends Model
     {
         return $this->hasMany(Sheet::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dataset()
+    {
+        return $this->hasMany(Dataset::class);
+    }
 }
