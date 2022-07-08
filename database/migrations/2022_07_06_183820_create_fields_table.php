@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('chart_id')
                 ->constrained('charts')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('column_id')
+                ->constrained('columns')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('type', array_keys(config('enums.field_types')));
             $table->timestamps();
         });

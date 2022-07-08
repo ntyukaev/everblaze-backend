@@ -4,7 +4,8 @@ return [
   'cell_types' => [
     'INT' => 'INT',
     'FLOAT' => 'FLOAT',
-    'STRING' => 'STRING'
+    'STRING' => 'STRING',
+    'BOOLEAN' => 'BOOLEAN'
   ],
   'field_types' => [
     'X' => 'X',

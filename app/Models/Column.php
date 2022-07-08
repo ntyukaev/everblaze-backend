@@ -10,7 +10,7 @@ class Column extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name', 'index'
     ];
 
     /**

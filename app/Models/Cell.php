@@ -9,10 +9,6 @@ class Cell extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'type'
-    ];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -35,14 +31,6 @@ class Cell extends Model
     public function column()
     {
         return $this->belongsTo(Column::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function cell()
-    {
-        return $this->belongsTo(Cell::class);
     }
 
     /**

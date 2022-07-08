@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('dataset_id')
                 ->constrained('datasets')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('name');
+            $table->enum('type', array_keys(config('enums.cell_types')));
+            $table->integer('index');
+            $table->string('name');
             $table->timestamps();
         });
     }
