@@ -14,18 +14,18 @@ class Field extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function cell()
-    {
-        return $this->hasMany(Cell::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function chart()
     {
-        return $this->hasMany(Chart::class);
+        return $this->belongsTo(Chart::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function column()
+    {
+        return $this->belongsTo(Column::class);
     }
 }
