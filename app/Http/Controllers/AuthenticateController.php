@@ -27,6 +27,8 @@ class AuthenticateController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
+            // TODO: Serialize
+            'user' => $user
         ]);
     }
 
@@ -44,11 +46,8 @@ class AuthenticateController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
+            // TODO: Serialize
+            'user' => $user
         ]);
-    }
-
-    public function me(Request $request)
-    {
-        return $request->user();
     }
 }
