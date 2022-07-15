@@ -22,14 +22,33 @@ class SheetQuery extends Query {
     return [
       'id' => [
         'name' => 'id',
-        'type' => Type::int(),
-        'rules' => ['required']
+        'type' => Type::int()
+      ],
+      'report_id' => [
+        'name' => 'report_id',
+        'type' => Type::int()
+      ],
+      'index' => [
+        'name' => 'index',
+        'type' => Type::int()
       ]
+    ];
+  }
+
+  protected function rules(array $args = []): array
+  {
+    return [
+      'id' => isset($args['report_id']) && isset($args['index']) ? [] : ['required'],
+      'report_id' => isset($args['index']) ? ['required'] : [],
+      'index' => isset($args['report_id']) ? ['required'] : []
     ];
   }
 
   public function resolve($root, $args)
   {
-    return Sheet::findOrFail($args['id']);
+    if (isset($args['id'])) {
+      return Sheet::findOrFail($args['id']);
+    }
+    return Sheet::where('report_id', $args['report_id'])->where('index', $args['index'])->firstOrFail();
   }
 }
