@@ -26,15 +26,10 @@ class FieldType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Type of the field',
             ],
-            'columns' => [
+            'column' => [
                 'type' => Type::nonNull(GraphQL::type('Column')),
                 'description' => 'Column of the field',
             ],
         ];
-    }
-
-    public function resolveColumnsField($root)
-    {
-        return $root->dataset;
     }
 }
