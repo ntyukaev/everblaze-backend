@@ -17,8 +17,21 @@ class SheetsQuery extends Query {
     return Type::listOf(GraphQL::type('Sheet'));
   }
 
-  public function resolve($root, $resolve)
+  public function args(): array
   {
+    return [
+      'report_id' => [
+        'name' => 'report_id',
+        'type' => Type::int()
+      ]
+    ];
+  }
+
+  public function resolve($root, $args)
+  {
+    if (isset($args['report_id'])) {
+      return Sheet::where('report_id', $args['report_id'])->get();
+    }
     return Sheet::all();
   }
 }

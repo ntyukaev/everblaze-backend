@@ -17,8 +17,21 @@ class ChartsQuery extends Query {
     return Type::listOf(GraphQL::type('Chart'));
   }
 
+  public function args(): array
+  {
+    return [
+      'sheet_id' => [
+        'name' => 'sheet_id',
+        'type' => Type::int()
+      ]
+    ];
+  }
+
   public function resolve($root, $resolve)
   {
+    if (isset($root['sheet_id'])) {
+      return Chart::where('sheet_id', $root['sheet_id'])->get();
+    }
     return Chart::all();
   }
 }
