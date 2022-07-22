@@ -30,6 +30,10 @@ class ColumnType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Name of the column',
             ],
+            'type' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'Type of the column',
+            ],
             'cells' => [
                 'type' => Type::listOf(GraphQL::type('Cell')),
                 'description' => 'Cells of the column',

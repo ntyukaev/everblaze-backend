@@ -27,10 +27,10 @@ class ChartsQuery extends Query {
     ];
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
-    if (isset($root['sheet_id'])) {
-      return Chart::where('sheet_id', $root['sheet_id'])->get();
+    if (isset($args['sheet_id'])) {
+      return Chart::where('sheet_id', $args['sheet_id'])->get();
     }
     return Chart::all();
   }

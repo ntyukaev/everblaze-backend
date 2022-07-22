@@ -17,8 +17,21 @@ class FieldsQuery extends Query {
     return Type::listOf(GraphQL::type('Field'));
   }
 
-  public function resolve($root, $resolve)
+  public function args(): array
   {
+    return [
+      'chart_id' => [
+        'name' => 'chart_id',
+        'type' => Type::int()
+      ]
+    ];
+  }
+
+  public function resolve($root, $args)
+  {
+    if (isset($args['chart_id'])) {
+      return Field::where('chart_id', $args['chart_id'])->get();
+    }
     return Field::all();
   }
 }
