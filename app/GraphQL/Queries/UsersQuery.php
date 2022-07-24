@@ -17,7 +17,7 @@ class UsersQuery extends Query {
     return Type::listOf(GraphQL::type('User'));
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
     return User::all();
   }

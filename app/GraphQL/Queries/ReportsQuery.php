@@ -17,7 +17,7 @@ class ReportsQuery extends Query {
     return Type::listOf(GraphQL::type('Report'));
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
     return Report::all();
   }

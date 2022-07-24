@@ -17,7 +17,7 @@ class RowsQuery extends Query {
     return Type::listOf(GraphQL::type('Row'));
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
     return Row::all();
   }

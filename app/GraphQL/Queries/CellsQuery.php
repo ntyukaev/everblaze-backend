@@ -17,7 +17,7 @@ class CellsQuery extends Query {
     return Type::listOf(GraphQL::type('Cell'));
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
     return Cell::all();
   }

@@ -17,7 +17,7 @@ class ColumnsQuery extends Query {
     return Type::listOf(GraphQL::type('Column'));
   }
 
-  public function resolve($root, $resolve)
+  public function resolve($root, $args)
   {
     return Column::all();
   }
