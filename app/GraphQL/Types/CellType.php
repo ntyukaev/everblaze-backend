@@ -42,10 +42,6 @@ class CellType extends GraphQLType {
     ];
   }
 
-  public function resolveIndexField($root) {
-    return $root->row->index;
-  }
-
   public function resolveValueField($root) {
     if ($root->type == CELL_TYPES->FLOAT) {
       return FloatCell::where('cell_id', $root->id)->value('value');

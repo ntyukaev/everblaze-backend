@@ -20,14 +20,6 @@ class Cell extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function row()
-    {
-        return $this->belongsTo(Row::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function column()
     {
         return $this->belongsTo(Column::class);

@@ -75,8 +75,6 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'row' => App\GraphQL\Queries\RowQuery::class,
-                'rows' => App\GraphQL\Queries\RowsQuery::class,
                 'user' => App\GraphQL\Queries\UserQuery::class,
                 'users' => App\GraphQL\Queries\UsersQuery::class,
                 'cell' => App\GraphQL\Queries\CellQuery::class,
@@ -99,7 +97,6 @@ return [
             ],
             // The types only available in this schema
             'types' => [
-                'Row' => App\GraphQL\Types\RowType::class,
                 'Cell' => App\GraphQL\Types\CellType::class,
                 'User' => App\GraphQL\Types\UserType::class,
                 'Chart' => App\GraphQL\Types\ChartType::class,

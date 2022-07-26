@@ -26,10 +26,6 @@ class DatasetType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Name of the dataset',
             ],
-            'rows' => [
-                'type' => Type::listOf(GraphQL::type('Row')),
-                'description' => 'Rows of the dataset',
-            ],
             'columns' => [
                 'type' => Type::listOf(GraphQL::type('Column')),
                 'description' => 'Columns of the dataset',

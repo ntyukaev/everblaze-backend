@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('cells', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('row_id')
-                ->constrained('rows')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('column_id')
                 ->constrained('columns')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('index');
             $table->enum('type', array_keys(config('enums.cell_types')));
             $table->timestamps();
         });
