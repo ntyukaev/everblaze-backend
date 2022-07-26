@@ -31,11 +31,19 @@ class CellType extends GraphQLType {
             'type' => Type::nonNull(Type::string()),
             'description' => 'Type of the cell'
         ],
+        'index' => [
+          'type' => Type::nonNull(Type::int()),
+          'description' => 'Index of the cell'
+        ],
         'value' => [
           'type' => Type::nonNull(GraphQL::type('DynamicType')),
           'description' => 'Value'
         ]
     ];
+  }
+
+  public function resolveIndexField($root) {
+    return $root->row->index;
   }
 
   public function resolveValueField($root) {

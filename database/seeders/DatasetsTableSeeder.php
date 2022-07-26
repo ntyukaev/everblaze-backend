@@ -33,6 +33,10 @@ class DatasetsTableSeeder extends Seeder
                 'report_id' => $report->id,
                 'name' => $faker->name()
             ]);
+            Dataset::create([
+                'report_id' => $report->id,
+                'name' => $faker->name()
+            ]);
         });
         
         $col_names =  config('enums.cell_types');
